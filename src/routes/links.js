@@ -21,7 +21,6 @@ router.post('/add', async (req,res) =>{
         idMedioContacto
     };
     await pool.query("INSERT INTO pacientes set ?",[newPaciente]);
-    //await pool.query("INSERT INTO pacientes set dni:'12345678',idTipoDNI:'1',idGenero:'1',fullname:'Randyy',email:'randy@gmail.com',cellphone:'30567422412',birthDate:'2021-04-04',idMedioContacto: '1'");
     console.log(newPaciente);
     console.log(req.body);
     res.json('received');
