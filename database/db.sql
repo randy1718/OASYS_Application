@@ -55,8 +55,11 @@ CREATE TABLE empleados(
     cellphone varchar(15) NOT NULL,
     birthDate date NOT NULL,
     idTipoEmpleado INT(5) NOT NULL,
+    FOREIGN KEY(idTipoEmpleado) REFERENCES tipoEmpleado(idTipoEmpleado),
     idGenero INT(5) NOT NULL,
-    idtipoDNI INT(5) NOT NULL
+    FOREIGN KEY(idGenero) REFERENCES genero(idgenero),
+    idtipoDNI INT(5) NOT NULL,
+    FOREIGN KEY(idtipoDNI) REFERENCES tipoDni(idTipoDni)
 );
 
 ALTER TABLE empleados
@@ -67,12 +70,15 @@ CREATE TABLE pacientes(
     PRIMARY KEY(idPaciente),
     dni INT(20) NOT NULL,
     idtipoDNI INT(5) NOT NULL,
+    FOREIGN KEY(idtipoDNI) REFERENCES tipoDni(idTipoDni),
     idGenero INT(5) NOT NULL,
+    FOREIGN KEY(idGenero) REFERENCES genero(idgenero),
     fullname varchar(30) NOT NULL,
     email varchar(30) NOT NULL,
     cellphone varchar(15) NOT NULL,
     birthDate date NOT NULL,
-    idmedioContacto INT(5) NOT NULL
+    idmedioContacto INT(5) NOT NULL,
+    FOREIGN KEY(idmedioContacto) REFERENCES medioContactoPreferencial(idmedioContacto)
 );
 
 CREATE TABLE citas(
@@ -96,21 +102,4 @@ CREATE TABLE citas(
 ALTER TABLE citas
     MODIFY idCita INT(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
 
-ALTER TABLE pacientes
-    ADD FOREIGN KEY(idtipoDNI) REFERENCES tipoDni(idTipoDni);
-
-ALTER TABLE pacientes
-    ADD FOREIGN KEY(idGenero) REFERENCES genero(idgenero);
-
-ALTER TABLE pacientes
-    ADD FOREIGN KEY(idmedioContacto) REFERENCES medioContactoPreferencial(idmedioContacto);
-
-ALTER TABLE empleados
-    ADD FOREIGN KEY(idtipoDNI) REFERENCES tipoDni(idTipoDni);
-
-ALTER TABLE empleados
-    ADD FOREIGN KEY(idGenero) REFERENCES genero(idgenero);
-
-ALTER TABLE empleados
-    ADD FOREIGN KEY(idTipoEmpleado) REFERENCES tipoEmpleado(idTipoEmpleado);
 
