@@ -3,7 +3,7 @@ const router = express.Router();
 
 const pool = require('../database');
 
-router.get('/add',(req,res) => {
+/*router.get('/add',(req,res) => {
     res.render('citas/add');
 });
 
@@ -29,8 +29,7 @@ router.post('/add', async (req,res) =>{
 
 router.get('/', async (req,res) =>{
     const pacientes = await pool.query('SELECT * FROM pacientes');
-    console.log(pacientes);
-    res.send('Pacientes iran aqui!');
-});
+    res.render('citas/pacientes', {pacientes});
+});*/
 
 module.exports = router; 
