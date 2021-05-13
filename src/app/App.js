@@ -9,11 +9,12 @@ import CreatePaciente from './components/CreatePaciente'
 toast.configure()
 
 class App extends Component {
-  
+
   render() {
     return (
       <Router>
-        <Route path='/' exact component={CreatePaciente}/>
+        <Route path='/' exact component={Inicio}/>
+        <Route path='/createPaciente' exact component={CreatePaciente}/>
       </Router>
     );
   }
