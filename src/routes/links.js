@@ -27,10 +27,10 @@ router.post('/', async (req,res) =>{
     res.json('received');
 });
 
-/*
+
 router.get('/', async (req,res) =>{
     const pacientes = await pool.query('SELECT * FROM pacientes');
-    res.render('citas/pacientes', {pacientes});
-});*/
+    res.json(pacientes);
+});
 
 module.exports = router; 
