@@ -9,8 +9,9 @@
 .vertical-center {
     min-height: 80%;  /* Fallback for browsers do NOT support vh unit */
     min-height: 80vh; /* These two lines are counted as one :-)       */
-  
+    height: 100%;
     display: flex;
+    background-size:cover;
     align-items: center;
   }
 
@@ -20,3 +21,32 @@
     font-weight: bold;
     color:seagreen;
   }
+
+   .tituloMain{
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 80px;
+    font-weight: bold;
+    color:seagreen;
+  }
+
+.login{
+  background-size:cover;
+  background-color: #DBFFDA;
+  height: 100%;
+}
+
+.jumbotron{
+  background-size:cover;
+  /*background-color: #DBFFDA;*/
+  height: 100%;
+}
+
+
+.navbar-custom{
+  background-color: #E6FFE6;
+}
+
+.logo{
+  color: seagreen;
+}

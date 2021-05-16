@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Navegation from "./Navegation";
+import {withRouter} from 'react-router-dom';
 
-export default class CreatePaciente extends Component {
+export default withRouter(class CreatePaciente extends Component {
 
   constructor(){
     super();
@@ -76,7 +77,7 @@ export default class CreatePaciente extends Component {
     return (
       <div>
         <Navegation/>
-        <div className="jumbotron vertical-center">
+        <div className="jumbotron vertical-center ">
           <div className="container-md align-items-center">
             <div className="row">
               <div className="col-md-4 mx-auto">
@@ -188,7 +189,7 @@ export default class CreatePaciente extends Component {
                       </div>
                       <div className="form-group">
                         <div className="d-grid gap-2">
-                          <button className="btn btn-success">Enviar</button>
+                          <button className="btn btn-success">Crear</button>
                         </div>
                       </div>
                     </form>
@@ -201,4 +202,4 @@ export default class CreatePaciente extends Component {
       </div>
     );
   }
-}
+})
