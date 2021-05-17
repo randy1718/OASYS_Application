@@ -5,6 +5,47 @@ import { withRouter } from "react-router";
 
 export default withRouter(
   class Inicio extends Component {
+    constructor() {
+      super();
+      this.state = {
+        user: "",
+        password: "",
+      };
+      this.login = this.login.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+    }
+
+    login(e) {
+      console.log(this.state);
+      fetch("/ingreso", {
+        method: "POST",
+        body: JSON.stringify(this.state),
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data), alert("ingreso exitoso!");
+          this.setState({
+            user: "",
+            password: "",
+          });
+        })
+        .catch((err) => console.error(err));
+
+      e.preventDefault();
+    }
+
+    handleChange(e){
+        const {name, value} = e.target;
+        this.setState({
+          [name]: value
+        });
+        console.log(e.target.name);
+      }
+
     render() {
       return (
         <div>
@@ -16,13 +57,15 @@ export default withRouter(
                   <div className="col-md-5 mx-auto">
                     <div className="card">
                       <div className="card-body">
-                        <form onSubmit={this.addTask}>
+                        <form onSubmit={this.login}>
                           <h1 className="tituloMain"> OASYS </h1>{" "}
                           <div className="form-group">
                             <input
                               type="text"
                               className="form-control"
                               name="user"
+                              value={this.state.user}
+                              onChange={this.handleChange}
                               placeholder="Usuario"
                               autoFocus
                               required
@@ -33,6 +76,8 @@ export default withRouter(
                               type="password"
                               className="form-control"
                               name="password"
+                              value={this.state.password}
+                              onChange={this.handleChange}
                               placeholder="Contraseña"
                               autoFocus
                               required

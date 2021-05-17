@@ -48,13 +48,13 @@ export default withRouter(class Navegation extends Component {
                   </NavLink>
                 </Nav.Item>
                 <Nav.Item className="nav-item dropdown">
-                  <Nav.Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Registro
-                  </Nav.Link>
+                  </NavLink>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <Nav.Item><Nav.Link className="dropdown-item" href="/citas">Citas</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link className="dropdown-item" href="/createPaciente">Pacientes</Nav.Link></Nav.Item>
-                    <Nav.Item><Nav.Link className="dropdown-item" href="/createEmpleado">Empleados</Nav.Link></Nav.Item>
+                    <Nav.Item><NavLink className="dropdown-item" to="/citas">Citas</NavLink></Nav.Item>
+                    <Nav.Item><NavLink className="dropdown-item" to="/createPaciente">Pacientes</NavLink></Nav.Item>
+                    <Nav.Item><NavLink className="dropdown-item" to="/createEmpleado">Empleados</NavLink></Nav.Item>
                   </ul>
                 </Nav.Item>
               </ul>

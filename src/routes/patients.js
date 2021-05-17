@@ -24,9 +24,9 @@ router.post('/', async (req,res) =>{
     await pool.query("INSERT INTO pacientes set ?",[newPaciente]);
     console.log(newPaciente);
     console.log(req.body);
+    req.flash('success','Paciente creado correctamente!');
     res.json('received');
 });
-
 
 router.get('/', async (req,res) =>{
     const pacientes = await pool.query('SELECT * FROM pacientes');
