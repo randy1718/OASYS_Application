@@ -33,7 +33,7 @@ export default withRouter(class Navegation extends Component {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <Nav.Item className='nav-item'>
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/home">
                     Home
                   </Link>
                 </Nav.Item>

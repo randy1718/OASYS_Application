@@ -46,8 +46,7 @@ export default withRouter(class Citas extends Component {
         return(
         <>
             <div>
-                <Navegation/>
-                    
+                <Navegation/>  
             </div> 
         </>
         );

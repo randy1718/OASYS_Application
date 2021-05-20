@@ -1,64 +1,93 @@
-.form-control{
-    margin-bottom: 15px;
+.form-control {
+  margin-bottom: 15px;
 }
 
-.form-select{
-    margin-bottom: 15px;
+.form-select {
+  margin-bottom: 15px;
 }
 
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
-    height: 100%;
-    display: flex;
-    background-size:cover;
-    align-items: center;
-  }
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  height: 100%;
+  display: flex;
+  background-size: cover;
+  align-items: center;
+}
 
-  .titulo{
-    text-align: center;
-    padding-bottom: 10px;
-    font-weight: bold;
-    color:seagreen;
-  }
+.titulo {
+  text-align: center;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: seagreen;
+}
 
-   .tituloMain{
-    text-align: center;
-    padding-bottom: 10px;
-    font-size: 80px;
-    font-weight: bold;
-    color:seagreen;
-  }
+.tituloMain {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 80px;
+  font-weight: bold;
+  color: seagreen;
+}
 
-.login{
-  background-size:cover;
-  background-color: #DBFFDA;
+.medida{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.login {
+  background-size: cover;
+  background-color: #dbffda;
   height: 100%;
 }
 
-.jumbotron{
-  background-size:cover;
+.jumbotron {
+  background-size: cover;
   /*background-color: #DBFFDA;*/
   height: 100%;
 }
 
-.navbar{
+.navbar {
   width: 100%;
-
 }
 
-.navbar-custom{
-  background-color: #E6FFE6;
+.navbar-custom {
+  background-color: #e6ffe6;
 }
 
-.logo{
+.logo {
   color: seagreen;
 }
 
-.boxEmpleado{
+.boxEmpleado {
   margin-top: -30px;
 }
 
-.boxPacientes{
+.boxPacientes {
   margin-top: -40px;
+}
+
+.boxLogin {
+  background-size:cover;
+  background: url('../imagenes/background2.png');
+}
+
+.boxCitas {
+  margin-top: -50px;
+}
+
+.modal-header .close {
+  float: right;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+  background-color: #fff;
+  border: 0;
+}
+
+.modal-header .close:hover {
+  opacity: 1;
 }

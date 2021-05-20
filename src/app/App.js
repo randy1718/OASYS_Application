@@ -3,9 +3,12 @@ import {toast} from 'react-toastify';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Citas from './components/Citas';
+import Agenda from './components/Agenda';
+import prueba from './components/asd2';
 import Navegation from "./components/Navegation";
 import Inicio from './components/Inicio';
 import CreatePaciente from './components/CreatePaciente'
+import Home from './components/Home'
 import CreateEmpleado from './components/CreateEmpleado'
 import {withRouter} from 'react-router';
 
@@ -18,7 +21,9 @@ class App extends Component {
       <Router>
         <Switch>
           <Route path='/' exact component={withRouter(Inicio)}/>
-          <Route path='/citas' component={withRouter(Citas)}/>
+          <Route path='/home' exact component={withRouter(Home)}/>
+          <Route path='/citas' component={withRouter(Agenda)}/>
+          <Route path='/prueba' component={withRouter(prueba)}/>
           <Route path='/createEmpleado' component={withRouter(CreateEmpleado)}/>
           <Route path='/createPaciente' component={withRouter(CreatePaciente)}/>
         </Switch>

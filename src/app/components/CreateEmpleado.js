@@ -102,7 +102,7 @@ export default class CreateEmpleado extends Component {
                             type="text"
                             className="form-control"
                             name="username"
-                            value={this.state.user}
+                            value={this.state.username}
                             onChange={this.handleChange}
                             placeholder="Usuario"
                             autoFocus
