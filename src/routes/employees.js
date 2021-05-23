@@ -6,19 +6,21 @@ const passport = require("passport");
 
 /*router.post('/', async (req,res) =>{
 
-    passport.authenticate('local.signup',{
+    /*passport.authenticate('local.signup',{
         successRedirect: '/',
         failureRedirect: '/',
         failureFlash: true
     });*/
 
-router.post("/",passport.authenticate("local.signup", {failureRedirect: "/"}, 
-    function (req, res) {
-        return res.redirect('/home');
-    }
-))
+router.post(
+  "/",
+  passport.authenticate("local.signup", {
+    successRedirect: "/home",
+    failureRedirect: "/",
+  })
+)
 
-  /*const {fullname,username, password,idTipoDNI, dni,idGenero,idTipoEmpleado, email, cellphone, birthDate} = req.body;
+/*const {fullname,username, password,idTipoDNI, dni,idGenero,idTipoEmpleado, email, cellphone, birthDate} = req.body;
     const newEmpleado = {
         dni,
         username,
@@ -36,8 +38,8 @@ router.post("/",passport.authenticate("local.signup", {failureRedirect: "/"},
     console.log(req.body);
     req.flash('success','Empleado creado correctamente!');
     res.json('received');
-});*/
-
+});
+*/
 router.get("/", async (req, res) => {
   const empleados = await pool.query("SELECT * FROM empleados");
   res.json(empleados);

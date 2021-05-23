@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import { Redirect } from "react-router";
 import Navegation from "./Navegation";
 
-export default class Home extends Component {
-    render() {
-        return (
-            <div>
-               <Navegation/> 
-            
-            </div>
-        )
-    }
+export default function Home() {
+  return (
+    <div>
+      <Navegation />
+    </div>
+  );
 }

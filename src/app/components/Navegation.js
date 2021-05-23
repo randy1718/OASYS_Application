@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {BrowserRouter as Router, Route, Switch, Link,NavLink} from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import {withRouter} from 'react-router';
+import auth from "./auth";
 
 export default withRouter(class Navegation extends Component {
 
@@ -15,7 +16,7 @@ export default withRouter(class Navegation extends Component {
       <div>
         <Nav defaultActiveKey={{}} className="navbar navbar-expand-lg navbar-light navbar-custom">
           <div className="container-fluid">
-            <Link to="/" className="navbar-brand" style={{color:'seagreen'}}>
+            <Link to="/home" className="navbar-brand" style={{color:'seagreen'}}>
               OASYS
             </Link>
             <button
@@ -55,6 +56,7 @@ export default withRouter(class Navegation extends Component {
                     <Nav.Item><NavLink className="dropdown-item" to="/citas">Citas</NavLink></Nav.Item>
                     <Nav.Item><NavLink className="dropdown-item" to="/createPaciente">Pacientes</NavLink></Nav.Item>
                     <Nav.Item><NavLink className="dropdown-item" to="/createEmpleado">Empleados</NavLink></Nav.Item>
+                    <Nav.Item><NavLink className="dropdown-item" to="/login">Log out {}</NavLink></Nav.Item>
                   </ul>
                 </Nav.Item>
               </ul>

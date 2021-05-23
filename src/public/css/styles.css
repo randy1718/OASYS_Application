@@ -73,7 +73,8 @@
 }
 
 .boxCitas {
-  margin-top: -50px;
+  margin-top: 50px;
+  margin-left: -700px;
 }
 
 .modal-header .close {
@@ -91,3 +92,79 @@
 .modal-header .close:hover {
   opacity: 1;
 }
+
+.Citas{
+  margin-top: -700px;
+  margin-left: 800px;
+  width: 400px;
+  height: 200px;
+  border: 1px solid #000;
+}
+
+.infoCita{
+  width: 700px;
+  height: 100px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 0px;
+  margin-bottom: 20px;
+}
+
+.cCitas{
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  margin-left: 1000px;
+  margin-top: -200px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.cardCita{
+  margin-top: -100px;
+  margin-left: -40px;
+ 
+}
+
+.cardCitas{
+  width: 600px;
+  padding: 10px;
+  font-size: 25px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.titleCard{
+  font-weight: bold;
+  font-size: 30px;
+  padding-bottom: 5px;
+}
+
+.body, html{
+  overflow: hidden;
+}
+
+.botonverde{
+  width: 100px;
+  padding: 5px;
+}
+
+.botonrojo{
+  width: 100px;
+  padding: 5px;
+}
+
+.divBoton1{
+  padding-bottom: 5px;
+  position: absolute;
+  margin-left: 450px;
+}
+.divBoton2{
+  padding-bottom: 5px;
+  position: absolute;
+  margin-left: 450px;
+  margin-top: 50px;
+}
+

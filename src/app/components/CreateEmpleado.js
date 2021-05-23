@@ -30,7 +30,7 @@ export default class CreateEmpleado extends Component {
         "Content-type": "application/json",
       },
     })
-      .then((res) => res.json())
+      .then((res) => {res.json()})
       .then((data) => {
         console.log(data), alert("Empleado creado exitosamente!");
         this.setState({
