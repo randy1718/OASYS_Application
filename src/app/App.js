@@ -10,6 +10,7 @@ import Inicio from './components/Inicio';
 import CreatePaciente from './components/CreatePaciente'
 import Home from './components/Home'
 import CreateEmpleado from './components/CreateEmpleado'
+import paginaInicio from './components/PaginaInicio'
 import {withRouter} from 'react-router';
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -21,12 +22,12 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-        <Route path='/' exact component={withRouter(Inicio)}/>
+        <Route path='/' exact component={withRouter(paginaInicio)}/>
           <Route path='/login' exact component={withRouter(Inicio)}/>
-          <ProtectedRoute exact path='/home' exact component={withRouter(Home)}/>
-          <Route path='/citas' component={withRouter(Agenda)}/>
-          <Route path='/prueba' component={withRouter(prueba)}/>
-          <Route path='/createEmpleado' component={withRouter(CreateEmpleado)}/>
+          <Route exact path='/home' exact component={withRouter(Home)}/>
+          <ProtectedRoute path='/citas' component={withRouter(Agenda)}/>
+          <ProtectedRoute path='/prueba' component={withRouter(prueba)}/>
+          <ProtectedRoute path='/createEmpleado' component={withRouter(CreateEmpleado)}/>
           <Route path='/createPaciente' component={withRouter(CreatePaciente)}/>
         </Switch>
       </Router>

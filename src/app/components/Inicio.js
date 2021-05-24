@@ -26,7 +26,6 @@ export default function Inicio() {
         console.log('Los datos son:'),
         console.log(data)
         if (Object.keys(data).length == 1){
-          Home.authorized = true;
           auth.login(() => {
             history.push('/home');
           });

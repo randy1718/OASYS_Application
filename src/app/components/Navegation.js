@@ -42,12 +42,7 @@ export default withRouter(class Navegation extends Component {
                   <Link className="nav-link" to="/citas">
                     Agenda
                   </Link>
-                </Nav.Item>
-                <Nav.Item className="nav-item">
-                  <NavLink className="nav-link" to="/createPaciente">
-                    Cuenta
-                  </NavLink>
-                </Nav.Item>
+                </Nav.Item> 
                 <Nav.Item className="nav-item dropdown">
                   <NavLink className="nav-link dropdown-toggle" to="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Registro
@@ -56,8 +51,10 @@ export default withRouter(class Navegation extends Component {
                     <Nav.Item><NavLink className="dropdown-item" to="/citas">Citas</NavLink></Nav.Item>
                     <Nav.Item><NavLink className="dropdown-item" to="/createPaciente">Pacientes</NavLink></Nav.Item>
                     <Nav.Item><NavLink className="dropdown-item" to="/createEmpleado">Empleados</NavLink></Nav.Item>
-                    <Nav.Item><NavLink className="dropdown-item" to="/login">Log out {}</NavLink></Nav.Item>
                   </ul>
+                </Nav.Item>
+                <Nav.Item className="nav-item">
+                  <NavLink className="nav-link" to="/login">Log out {auth.logout}</NavLink>
                 </Nav.Item>
               </ul>
             </div>

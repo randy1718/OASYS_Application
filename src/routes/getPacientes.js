@@ -5,7 +5,7 @@ const pool = require('../database');
 
 
 router.get('/', async (req,res) =>{
-    const pacientes = await pool.query('SELECT idPaciente,fullname FROM pacientes');
+    const pacientes = await pool.query('SELECT idPaciente,fullnamePaciente FROM pacientes');
     res.json(pacientes);
 });
 

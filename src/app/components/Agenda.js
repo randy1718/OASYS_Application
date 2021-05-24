@@ -14,6 +14,7 @@ export default function Agenda() {
   const handleShow = () => setShow(true);
 
   const [showMessage, setShowMessage] = useState(false);
+  const [mensaje, setMensaje] = useState("¡Cita creada correctamente!");
   const handleCloseMessage = () => setShowMessage(false);
   const handleShowMessage = () => setShowMessage(true);
   const months = [
@@ -36,6 +37,7 @@ export default function Agenda() {
     idDoctor: "",
     idPaciente: "",
     idTipoCita: "",
+    idEstado: "0",
     fechaCita: "",
     hora: "",
     duracion_minutos: "",
@@ -68,22 +70,31 @@ export default function Agenda() {
           "Content-type": "application/json",
         },
       })
-      .then((res) => res.json())
+        .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          setCita({
-            idDoctor: "",
-            idPaciente: "",
-            idTipoCita: "",
-            fechaCita: "",
-            hora: "",
-            duracion_minutos: "",
-            _id:""
-          });
-          fetchCitas();
-          setTitleCita("Crear");
-          setBoton("Crear");
-        })
+          if (data == "¡Seleccione el estado de la cita!") {
+            setMensaje(data);
+            handleShowMessage();
+            fetchCitas();
+          } else {
+            setCita({
+              idDoctor: "",
+              idPaciente: "",
+              idTipoCita: "",
+              idEstado: "0",
+              fechaCita: "",
+              hora: "",
+              duracion_minutos: "",
+              _id: "",
+            });
+            setMensaje(data);
+            handleShowMessage();
+            fetchCitas();
+            setTitleCita("Crear");
+            setBoton("Crear");
+          }
+        });
     } else {
       fetch("/agenda", {
         method: "POST",
@@ -99,11 +110,12 @@ export default function Agenda() {
             idDoctor: "",
             idPaciente: "",
             idTipoCita: "",
+            idEstado: "0",
             fechaCita: "",
             hora: "",
             duracion_minutos: "",
           });
-
+          setMensaje(data);
           handleShowMessage();
           fetchCitas();
           setBoton("Crear");
@@ -122,7 +134,9 @@ export default function Agenda() {
       onHide={handleCloseMessage}
       animation={true}
     >
-      <Modal.Body>Cita creada exitosamente!</Modal.Body>
+      <Modal.Body>
+        <div className="container align-items-center">{mensaje}</div>
+      </Modal.Body>
     </Modal>
   );
 
@@ -150,6 +164,17 @@ export default function Agenda() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setMensaje(data);
+        handleShowMessage();
+        setCita({
+          idDoctor: "",
+          idPaciente: "",
+          idTipoCita: "",
+          idEstado: "0",
+          fechaCita: "",
+          hora: "",
+          duracion_minutos: "",
+        });
         fetchCitas();
       });
   };
@@ -166,6 +191,7 @@ export default function Agenda() {
           idDoctor: data[0].idDoctor,
           idPaciente: data[0].idPaciente,
           idTipoCita: data[0].idTipoCita,
+          idEstado: "1000",
           fechaCita: Moment(data[0].fechaCita).format("YYYY-MM-DD"),
           hora: data[0].hora,
           duracion_minutos: data[0].duracion_minutos,
@@ -381,7 +407,7 @@ export default function Agenda() {
                               key={paciente.idPaciente}
                               value={paciente.idPaciente}
                             >
-                              {paciente.fullname}
+                              {paciente.fullnamePaciente}
                             </option>
                           ))}
                         </select>
@@ -402,6 +428,23 @@ export default function Agenda() {
                           <option value="3">Limpieza</option>
                           <option value="4">Protesis</option>
                           <option value="5">Empastes</option>
+                        </select>
+                      </div>
+
+                      <div className="form-group">
+                        <select
+                          className="form-select"
+                          name="idEstado"
+                          value={cita.idEstado}
+                          onChange={handleChange}
+                          placeholder="Tipo cita"
+                          required
+                        >
+                          <option value="1000">Estado de la cita</option>
+                          <option value="0">Agendada</option>
+                          <option value="1">Aplazada</option>
+                          <option value="2">Realizada</option>
+                          <option value="3">Espera de resultados</option>
                         </select>
                       </div>
 
@@ -453,7 +496,7 @@ export default function Agenda() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-4 cCitas">
+              <div className="col-md-6 cCitas">
                 <div></div>
                 {citas.citas.map((cita) => {
                   return (
@@ -473,7 +516,8 @@ export default function Agenda() {
                             Hora:{" "}
                             {Moment(cita.hora, "HH:mm:ss").format("hh:mm A")}
                           </div>
-                          <div>Paciente {cita.fullname}</div>
+                          <div>Doctor {cita.fullname}</div>
+                          <div>Paciente {cita.fullnamePaciente}</div>
                           <div> {cita.tipoCita}</div>
                           <div className="divBoton1">
                             <Button
@@ -481,7 +525,7 @@ export default function Agenda() {
                               className="botonverde"
                               variant="success"
                             >
-                              Terminar
+                              Editar
                             </Button>
                           </div>
                           <div className="divBoton2">
