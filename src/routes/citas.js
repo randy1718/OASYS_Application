@@ -75,6 +75,7 @@ router.put("/update/:id", async (req, res) => {
     duracion_minutos,
     _id,
   } = req.body;
+
   const idConfirmacion = "0";
   console.log(req.body);
   const updatedCita = {

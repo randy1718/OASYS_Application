@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path='/home' exact component={withRouter(Home)}/>
           <ProtectedRoute path='/citas' component={withRouter(Agenda)}/>
           <ProtectedRoute path='/prueba' component={withRouter(prueba)}/>
-          <ProtectedRoute path='/createEmpleado' component={withRouter(CreateEmpleado)}/>
+          <Route path='/createEmpleado' component={withRouter(CreateEmpleado)}/>
           <Route path='/createPaciente' component={withRouter(CreatePaciente)}/>
         </Switch>
       </Router>

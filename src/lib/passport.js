@@ -38,7 +38,8 @@ passport.use('local.signup',new LocalStrategy({
     const result = await pool.query("INSERT INTO empleados set ?",[newEmpleado]);
     newEmpleado.id = result.insertId;
     console.log(result);
-    return done(null, newEmpleado);
+
+    return done(null, '¡Empleado creado correctamente!');
 
 }));
 

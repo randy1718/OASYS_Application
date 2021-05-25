@@ -312,25 +312,31 @@ export default function CreatePaciente() {
                             Paciente {paciente.fullnamePaciente}
                           </div>
                           <div>Medio de contacto {paciente.tipoMedio}</div>
-                          <div className="divBoton1Paciente">
-                            <Button
-                              onClick={() => modifyPaciente(paciente.idPaciente)}
-                              className="botonverdePaciente"
-                              variant="success"
-                            >
-                              Editar
-                            </Button>
-                          </div>
-                          <div className="divBoton2Paciente">
-                            <Button
-                              onClick={() =>
-                                deletePaciente(paciente.idPaciente)
-                              }
-                              className="botonrojoPaciente"
-                              variant="danger"
-                            >
-                              Borrar
-                            </Button>
+                          <div>Celular {paciente.cellphone}</div>
+                          <div>Email {paciente.email}</div>
+                          <div className="BotonesCRUD">
+                            <div className="divBoton1Paciente">
+                              <Button
+                                onClick={() =>
+                                  modifyPaciente(paciente.idPaciente)
+                                }
+                                className="botonverdePaciente"
+                                variant="success"
+                              >
+                                Editar
+                              </Button>
+                            </div>
+                            <div className="divBoton2Paciente">
+                              <Button
+                                onClick={() =>
+                                  deletePaciente(paciente.idPaciente)
+                                }
+                                className="botonrojoPaciente"
+                                variant="danger"
+                              >
+                                Borrar
+                              </Button>
+                            </div>
                           </div>
                         </div>
                       </div>
